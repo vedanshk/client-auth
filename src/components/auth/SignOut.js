@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux';
+import * as actions from "../../actions"
+function SignOut(props) {
+ 
+    useEffect(()=>{
+        props.signout();
+    },[])
 
-function SignOut() {
   return (
     <div>SignOut</div>
   )
 }
 
-export default SignOut
+export default connect(null , actions)(SignOut);

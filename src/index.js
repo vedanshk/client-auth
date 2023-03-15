@@ -8,7 +8,9 @@ import App from './components/App';
 import Welcome from './components/Welcome';
 import SignUp from './components/auth/SignUp';
 import SignIn from './components/auth/SignIn';
+import Feature from './components/Feature';
 import reducers from './reducers';
+import SignOut from './components/auth/SignOut';
 
 
 
@@ -34,7 +36,9 @@ root.render(<BrowserRouter>
         <Route path="/signup" component={SignUp}>
 
         </Route>
+        <Route path="/feature" component={Feature} />
         <Route path="/signin" component={SignIn} />
+        <Route path="/signout" component={SignOut} />
     </App>
     </Provider>
 
