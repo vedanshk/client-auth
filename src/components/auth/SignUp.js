@@ -6,7 +6,10 @@ import * as actions from "../../actions";
 function SignUp(props) {
     const { handleSubmit , signup } = props;
     const onSubmit = (formProps) => {
-        signup(formProps);
+        signup(formProps , () => {
+            props.history.push('/feature');
+        });
+        
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -22,11 +25,18 @@ function SignUp(props) {
 
 
             </fieldset>
+            <div>
+                {props.errorMessage}
+            </div>
             <button>Sign Up</button>
         </form>
     )
 }
+function mapStateToProps(state) {
+
+    return { errorMessage : state.auth.errorMessage};
+}
 
 export default compose(
-    connect(null , actions), reduxForm({ form: 'signup' })
+    connect(mapStateToProps , actions), reduxForm({ form: 'signup' })
 )(SignUp);

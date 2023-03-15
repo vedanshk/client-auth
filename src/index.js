@@ -16,7 +16,11 @@ const el = document.getElementById('root');
 
 const root = createRoot(el);
 
-const store = createStore(reducers , {} , applyMiddleware(reduxThunk));
+const store = createStore(reducers , {
+    auth:{
+        authenticated: localStorage.getItem('token')
+    }
+} , applyMiddleware(reduxThunk));
 
 
 root.render(<BrowserRouter>
